@@ -1,3 +1,11 @@
 {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "sqltools.connections": [
+      {
+        "database": "${workspaceFolder}\\src/database/db.sqlite",
+        "dialect": "SQLite",
+        "name": "BeTheHero"
+      }
+    ],
+    "sqltools.useNodeRuntime": true
 }
