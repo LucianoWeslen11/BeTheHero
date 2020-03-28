@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom'
 import { FiLogIn } from 'react-icons/fi';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'; 
 
 import api from '../../services/api'
 import './styles.css';
@@ -24,12 +26,13 @@ export default function Logon(){
 
       history.push('/profile');
     }catch(err){
-      alert('Falha no Login, tente novamente.');
+      toast.error('ID Inválido, por favor digite um ID válido!')
     }
   }
 
   return (
     <div className="logon-container">
+      <ToastContainer />
       <section className="form">
         <img src={logoImage} alt="BeTheHero"/>
         <form onSubmit={handleLogin}>

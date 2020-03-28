@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useHistory} from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi';
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'; 
 
 import api from '../../services/api'
 import './styles.css';
@@ -32,14 +33,16 @@ export default function NewIncident() {
           Authorization: ongId
         }
       });
+
       history.push('/profile');
     } catch (err) {
-      alert('Erro ao cadastrar caso, tente novamente.');
+      toast.error('Erro ao cadastrar caso, tente novamente.');
     }
   }
 
   return (
     <div className="new-incident-container" >
+      <ToastContainer/>
       <div className="content">
         <section>
           <img src={logoImage} alt="BeTheHero" />
